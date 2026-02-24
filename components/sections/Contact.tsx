@@ -258,7 +258,7 @@ export default function Contact() {
                   style={{ border: 0, borderRadius: '12px' }}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  allowFullScreen=""
+                  allowFullScreen
                   aria-hidden="false"
                   tabIndex={0}
                 />

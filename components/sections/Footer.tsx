@@ -1,8 +1,6 @@
 'use client';
 import Image from 'next/image';
-import Link from 'next/link';
 import { siteData } from '@/data/site';
-import SocialIcons from '@/components/ui/SocialIcons';
 import Container from '@/components/ui/Container';
 import Icon from '@/components/ui/Icon';
 
@@ -37,7 +35,7 @@ export default function Footer() {
                 {siteData.socials.map((social, index) => (
                   <a
                     key={index}
-                    href={social.url}
+                    href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-10 h-10 rounded-lg bg-white/10 hover:bg-accent flex items-center justify-center transition-all duration-300 hover:scale-110 group"
