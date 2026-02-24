@@ -1,0 +1,14 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#f8f9fa"/>
+  <rect x="50" y="50" width="700" height="100" fill="#1e40af" rx="8"/>
+  <text x="400" y="110" font-family="Arial, sans-serif" font-size="32" fill="#ffffff" text-anchor="middle">AJK Insurance Brokers</text>
+  <rect x="50" y="180" width="700" height="370" fill="#ffffff" stroke="#e5e7eb" stroke-width="2" rx="8"/>
+  <text x="400" y="250" font-family="Arial, sans-serif" font-size="18" fill="#6b7280" text-anchor="middle">TODO: Replace with actual screenshot</text>
+  <text x="400" y="290" font-family="Arial, sans-serif" font-size="16" fill="#9ca3af" text-anchor="middle">Visit: https://ajk-insurance.com/</text>
+  <rect x="150" y="340" width="140" height="40" fill="#1e40af" rx="4"/>
+  <text x="220" y="367" font-family="Arial, sans-serif" font-size="14" fill="#ffffff" text-anchor="middle">Services</text>
+  <rect x="330" y="340" width="140" height="40" fill="#1e40af" rx="4"/>
+  <text x="400" y="367" font-family="Arial, sans-serif" font-size="14" fill="#ffffff" text-anchor="middle">About</text>
+  <rect x="510" y="340" width="140" height="40" fill="#1e40af" rx="4"/>
+  <text x="580" y="367" font-family="Arial, sans-serif" font-size="14" fill="#ffffff" text-anchor="middle">Contact</text>
+</svg>

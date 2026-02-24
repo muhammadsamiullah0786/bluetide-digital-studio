@@ -1,0 +1,265 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scroll Progress Indicator */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(to right, #2563EB, #93C5FD);
+  z-index: 9999;
+  transition: width 0.1s ease-out;
+}
+
+body {
+  background-color: #f6f1ea;
+  color: #1a1a1a;
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  animation: pageLoad 0.5s ease-in;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f6f1ea;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d6d3d1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a29e;
+}
+
+/* Smooth transitions */
+button,
+a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Section animations */
+.fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+/* Enhanced Animations */
+@keyframes pageLoad {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 1s ease-out;
+  animation-fill-mode: both;
+}
+
+.animate-zoom {
+  animation: zoom 20s ease-in-out infinite alternate;
+}
+
+/* Utility classes */
+.max-width-container {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #2563EB;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #1a1a1a;
+  margin-bottom: 2rem;
+}
+
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(to right, #2563EB, #93C5FD);
+  margin: 1rem auto;
+}
+
+/* Accent colors */
+.accent-color {
+  color: #2563EB;
+}
+
+.accent-bg {
+  background-color: #2563EB;
+}
+
+/* Button base styles */
+.btn {
+  padding: 0.75rem 1.75rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #ff4d5a;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #e63946;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 77, 90, 0.4), 0 0 20px rgba(255, 77, 90, 0.2);
+  filter: brightness(1.05);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #ff4d5a;
+  border: 2px solid #ff4d5a;
+}
+
+.btn-secondary:hover {
+  background-color: #ff4d5a;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 77, 90, 0.3);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #1a1a1a;
+  border: 2px solid #e7e5e4;
+}
+
+.btn-outline:hover {
+  border-color: #ff4d5a;
+  color: #ff4d5a;
+  background-color: rgba(255, 77, 90, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 77, 90, 0.15);
+}
+
+/* Card styles */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 0 15px rgba(37, 99, 235, 0.1);
+  transform: translateY(-6px);
+}
+
+/* Input styles */
+input,
+textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e7e5e4;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #ff4d5a;
+  box-shadow: 0 0 0 3px rgba(255, 77, 90, 0.1);
+}
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+}

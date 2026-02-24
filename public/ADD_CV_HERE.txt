@@ -1,0 +1,16 @@
+⚠️ CV FILE REQUIRED
+
+Please add your CV PDF file here:
+
+File name: Muhammad-Sami-Ullah-CV.pdf
+Location: /public/Muhammad-Sami-Ullah-CV.pdf
+
+The "Download CV" button in the About section is configured to download this file.
+
+Steps:
+1. Create or export your CV as a PDF
+2. Rename it to: Muhammad-Sami-Ullah-CV.pdf
+3. Place it in this folder (public/)
+4. Delete this placeholder file
+
+The download link is already configured in components/sections/About.tsx
