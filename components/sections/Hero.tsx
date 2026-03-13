@@ -18,7 +18,7 @@ export default function Hero() {
   });
 
   return (
-    <section className="relative w-full min-h-screen flex items-center overflow-hidden">
+    <section className="relative w-full min-h-[100svh] flex items-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -39,33 +39,33 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <Container className="relative z-10 py-32 md:py-40">
+      <Container className="relative z-10 pt-28 pb-20 sm:py-32 md:py-40">
         <div className="max-w-4xl">
           {/* Available Badge */}
-          <div className="inline-flex items-center gap-2 bg-green-500/25 backdrop-blur-md px-4 py-2 rounded-full border border-green-400/40 mb-6 animate-fadeIn shadow-lg">
+          <div className="inline-flex items-center gap-2 bg-green-500/25 backdrop-blur-md px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-green-400/40 mb-6 animate-fadeIn shadow-lg">
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse shadow-lg" />
-            <span className="text-sm font-bold text-white drop-shadow-md">{siteData.hero.badge}</span>
+            <span className="text-xs sm:text-sm font-bold text-white drop-shadow-md">{siteData.hero.badge}</span>
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 animate-fadeInUp drop-shadow-lg">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 animate-fadeInUp drop-shadow-lg">
             BlueTide Digital Studio
           </h1>
 
           {/* Sub Heading */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight animate-fadeInUp drop-shadow-lg" style={{ animationDelay: '0.15s' }}>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight animate-fadeInUp drop-shadow-lg" style={{ animationDelay: '0.15s' }}>
             Hi, I'm Muhammad Sami Ullah
           </h2>
 
           {/* Animated Role Text */}
-          <div className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white mb-8 h-12 md:h-14 animate-fadeInUp drop-shadow-md" style={{ animationDelay: '0.3s' }}>
+          <div className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-white mb-8 min-h-[2.5rem] sm:min-h-[3rem] md:min-h-[3.5rem] leading-tight animate-fadeInUp drop-shadow-md" style={{ animationDelay: '0.3s' }}>
             <span className="text-white">I'm a </span>
             <span className="text-accent font-bold">{currentRole}</span>
             <span className={`text-accent ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity duration-100`}>|</span>
           </div>
 
           {/* Value Proposition */}
-          <p className="text-lg md:text-xl text-gray-100 leading-relaxed max-w-2xl mb-10 animate-fadeInUp drop-shadow-md" style={{ animationDelay: '0.45s' }}>
+          <p className="text-base sm:text-lg md:text-xl text-gray-100 leading-relaxed max-w-2xl mb-10 animate-fadeInUp drop-shadow-md" style={{ animationDelay: '0.45s' }}>
             {siteData.hero.valueProposition}
           </p>
 
@@ -93,7 +93,7 @@ export default function Hero() {
       </Container>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-10">
+      <div className="hidden sm:block absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-10">
         <Icon name="chevronDown" size={28} className="text-white drop-shadow-lg" />
       </div>
     </section>

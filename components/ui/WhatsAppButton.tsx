@@ -23,18 +23,18 @@ export default function WhatsAppButton() {
       href={whatsappLink}
       target="_blank"
       rel="noopener noreferrer"
-      className={`fixed bottom-6 right-6 z-40 group transition-all duration-300 ${
+      className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 group transition-all duration-300 ${
         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0 pointer-events-none'
       }`}
       aria-label="Contact via WhatsApp"
     >
       {/* Button */}
-      <div className="relative flex items-center gap-3 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group-hover:pr-4">
+      <div className="relative flex items-center gap-2 sm:gap-3 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 sm:group-hover:pr-4">
         {/* Icon */}
-        <div className="w-14 h-14 flex items-center justify-center rounded-full">
+        <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center rounded-full">
           <svg
-            width="28"
-            height="28"
+            width="24"
+            height="24"
             viewBox="0 0 24 24"
             fill="currentColor"
           >
@@ -43,7 +43,7 @@ export default function WhatsAppButton() {
         </div>
 
         {/* Text (visible on hover) */}
-        <span className="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 font-semibold text-sm">
+        <span className="hidden sm:inline-block max-w-0 overflow-hidden whitespace-nowrap sm:group-hover:max-w-xs transition-all duration-300 font-semibold text-sm">
           Chat on WhatsApp
         </span>
       </div>

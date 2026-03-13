@@ -26,12 +26,12 @@ export default function Portfolio() {
 
         {/* Filter Tabs */}
         <FadeUp delay={0.2}>
-          <div className="mb-12 flex flex-wrap gap-3">
+          <div className="mb-8 sm:mb-12 flex flex-wrap gap-2 sm:gap-3">
             {siteData.portfolio.categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveFilter(category)}
-                className={`px-6 py-2 rounded-full font-semibold transition-all ${
+                className={`px-4 sm:px-6 py-2 rounded-full text-sm sm:text-base font-semibold transition-all ${
                   activeFilter === category
                     ? 'bg-accent text-white shadow-soft'
                     : 'bg-white text-dark hover:bg-gray-50 border border-gray-200'

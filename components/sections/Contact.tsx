@@ -242,7 +242,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="font-bold text-dark mb-1">{item.label}</h4>
-                      <p className="text-gray-600">{item.value}</p>
+                      <p className="text-gray-600 break-words">{item.value}</p>
                     </div>
                   </div>
                 ))}
@@ -269,7 +269,7 @@ export default function Contact() {
           {/* Contact Form */}
           <SlideInRight>
             <div>
-              <form onSubmit={handleSubmit} className="space-y-6 bg-cream rounded-xl p-8">
+              <form onSubmit={handleSubmit} className="space-y-6 bg-cream rounded-xl p-5 sm:p-8">
                 {/* Name */}
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-dark mb-2">
@@ -348,36 +348,12 @@ export default function Contact() {
                   <p className="text-sm text-gray-500 mb-2">Or</p>
                   <a
                     href={`mailto:${contactEmail}?subject=Contact from Portfolio&body=Hi Muhammad Sami Ullah,%0D%0A%0D%0A`}
-                    className="inline-flex items-center gap-2 text-accent hover:text-accentHover font-semibold text-sm transition-colors"
+                    className="inline-flex items-center gap-2 text-accent hover:text-accentHover font-semibold text-sm transition-colors break-all"
                   >
                     <Icon name="mail" size={18} />
                     Email me directly at {contactEmail}
                   </a>
                 </div>
-
-                {/* Configuration Warning */}
-                {!isConfigured && (
-                  <div className="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-                    <div className="flex items-start gap-3">
-                      <Icon name="alertCircle" size={20} className="text-yellow-600 flex-shrink-0 mt-0.5" />
-                      <div className="text-sm">
-                        <p className="font-semibold text-yellow-800 mb-1">
-                          Contact form is not configured yet
-                        </p>
-                        <p className="text-yellow-700 mb-2">
-                          Please email me directly, or check TROUBLESHOOTING.md to configure EmailJS.
-                        </p>
-                        <a
-                          href={`mailto:${contactEmail}`}
-                          className="inline-flex items-center gap-1 text-accent hover:text-accentHover font-semibold"
-                        >
-                          <Icon name="mail" size={16} />
-                          {contactEmail}
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                )}
               </form>
 
               {/* Dev-Only Test Button */}

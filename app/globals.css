@@ -10,6 +10,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 /* Scroll Progress Indicator */
@@ -29,6 +30,7 @@ body {
   color: #1a1a1a;
   font-family: 'Inter', system-ui, sans-serif;
   line-height: 1.6;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   animation: pageLoad 0.5s ease-in;

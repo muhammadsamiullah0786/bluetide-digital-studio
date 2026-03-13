@@ -70,16 +70,16 @@ function ToastContainer({ toasts, onRemove }: ToastContainerProps) {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-40 space-y-2 max-w-sm">
+    <div className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-4 z-40 space-y-2 sm:max-w-sm">
       {toasts.map((toast) => {
         const config = typeConfig[toast.type || 'info'];
         return (
           <div
             key={toast.id}
-            className={`${config.bg} ${config.border} ${config.text} border rounded-lg px-4 py-3 flex items-center justify-between gap-3 animate-slideUp shadow-soft`}
+            className={`${config.bg} ${config.border} ${config.text} border rounded-lg px-4 py-3 flex items-start justify-between gap-3 animate-slideUp shadow-soft`}
             role="alert"
           >
-            <span className="text-sm font-medium">{toast.message}</span>
+            <span className="text-sm font-medium leading-snug flex-1">{toast.message}</span>
             <button
               onClick={() => onRemove(toast.id)}
               className="p-1 hover:bg-white hover:bg-opacity-50 rounded transition-colors flex-shrink-0"

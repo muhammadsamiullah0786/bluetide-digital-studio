@@ -48,7 +48,7 @@ export default function About() {
 
               {/* Buttons */}
               <div className="space-y-3 py-6">
-                <a href="/Muhammad-Sami-Ullah-CV.pdf" download className="block">
+                <a href="/Muhammad_Sami_Ullah_Advanced_Modern_CV.pdf" download className="block">
                   <Button size="md" className="w-full justify-center">
                     {siteData.about.cta1}
                   </Button>

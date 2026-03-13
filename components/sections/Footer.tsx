@@ -18,13 +18,13 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 pb-16 border-b border-white/10">
             {/* About */}
             <div>
-              <div className="inline-flex items-center justify-center px-4 py-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 mb-6 hover:bg-white/15 transition-all duration-300">
+              <div className="inline-flex items-center justify-center px-4 py-3 rounded-xl bg-white shadow-soft border border-white/70 mb-6 transition-all duration-300">
                 <Image
                   src="/logo.png"
                   alt="BlueTide Digital Studio"
                   width={220}
                   height={68}
-                  className="h-14 md:h-16 w-auto"
+                  className="h-14 md:h-16 w-auto object-contain"
                   unoptimized
                 />
               </div>

@@ -14,6 +14,13 @@ interface HeaderProps {
 
 export default function Header({ isScrolled }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const mobileNavIcons: Record<string, string> = {
+    About: 'user',
+    Resume: 'book',
+    Services: 'layout',
+    Portfolio: 'eye',
+    Contact: 'mail',
+  };
 
   return (
     <header
@@ -23,13 +30,13 @@ export default function Header({ isScrolled }: HeaderProps) {
           : 'bg-gradient-to-b from-black/60 to-transparent'
       }`}
     >
-      <Container className="flex items-center justify-between py-4">
+      <Container className="flex items-center justify-between py-3 md:py-4">
         {/* Logo */}
         <Link
           href="#"
           className="flex-shrink-0 hover:scale-105 transition-transform duration-300"
         >
-          <div className={`flex items-center justify-center px-4 py-2 rounded-xl transition-all ${
+          <div className={`flex items-center justify-center px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-xl transition-all ${
             isScrolled
               ? 'bg-white'
               : 'bg-white/95'
@@ -37,11 +44,11 @@ export default function Header({ isScrolled }: HeaderProps) {
             <Image
               src="/logo.png"
               alt="BlueTide Digital Studio"
-              width={220}
-              height={68}
+              width={160}
+              height={50}
               priority
               unoptimized
-              className="h-12 md:h-16 w-auto"
+              className="h-9 sm:h-10 md:h-16 w-auto"
             />
           </div>
         </Link>
@@ -64,7 +71,7 @@ export default function Header({ isScrolled }: HeaderProps) {
         </nav>
 
         {/* CTA Button + Mobile Menu */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4">
           <a href="#contact">
             <Button size="sm" className="hidden sm:inline-flex">
               Contact Me
@@ -88,18 +95,44 @@ export default function Header({ isScrolled }: HeaderProps) {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200">
-          <Container className="flex flex-col py-4 gap-2">
+        <div className="md:hidden border-t border-white/10 bg-white/95 backdrop-blur-xl shadow-soft-lg">
+          <Container className="py-4">
+            <div className="mb-4 rounded-2xl bg-gradient-to-r from-slate-950 via-slate-900 to-blue-950 px-4 py-4 text-white shadow-soft">
+              <p className="text-xs font-bold uppercase tracking-[0.28em] text-blue-200/90">Navigation</p>
+              <p className="mt-1 text-sm text-white/75">Jump quickly to the section you want on mobile.</p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3">
             {siteData.navigation.map((item, index) => (
               <a
                 key={index}
                 href={item.href}
-                className="px-4 py-2 text-sm font-semibold text-dark hover:bg-blue-50 hover:text-accent rounded-lg transition-colors"
+                className={`group rounded-2xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 px-4 py-4 text-left shadow-[0_10px_30px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-[0_16px_40px_rgba(37,99,235,0.16)] ${
+                  siteData.navigation.length % 2 === 1 && index === siteData.navigation.length - 1
+                    ? 'col-span-2'
+                    : ''
+                }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                {item.label}
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-accent ring-1 ring-blue-100 transition-colors duration-300 group-hover:bg-accent group-hover:text-white group-hover:ring-accent/20">
+                      <Icon name={mobileNavIcons[item.label] || 'arrowRight'} size={18} />
+                    </span>
+                    <div>
+                      <span className="block text-base font-semibold text-slate-900 group-hover:text-accent transition-colors">
+                        {item.label}
+                      </span>
+                      <span className="block text-xs uppercase tracking-[0.22em] text-slate-400">
+                        Section
+                      </span>
+                    </div>
+                  </div>
+                  <Icon name="arrowRight" size={16} className="mt-1 text-slate-300 transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent" />
+                </div>
               </a>
             ))}
+            </div>
           </Container>
         </div>
       )}

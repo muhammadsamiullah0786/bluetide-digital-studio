@@ -27,11 +27,11 @@ interface CaseStudyProps {
 
 export default function CaseStudy({ data, onClose }: CaseStudyProps) {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-      <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-fadeIn">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/50 backdrop-blur-sm">
+      <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[92svh] overflow-y-auto shadow-2xl animate-fadeIn">
         {/* Header */}
-        <div className="sticky top-0 flex items-center justify-between p-6 bg-gradient-to-r from-accent to-blue-700 text-white border-b">
-          <h2 className="text-2xl font-bold">{data.title}</h2>
+        <div className="sticky top-0 flex items-center justify-between p-4 sm:p-6 bg-gradient-to-r from-accent to-blue-700 text-white border-b">
+          <h2 className="text-lg sm:text-2xl font-bold">{data.title}</h2>
           <button
             onClick={onClose}
             className="p-2 hover:bg-white/20 rounded-lg transition-colors duration-300"
@@ -42,9 +42,9 @@ export default function CaseStudy({ data, onClose }: CaseStudyProps) {
         </div>
 
         {/* Content */}
-        <div className="p-8 space-y-8">
+        <div className="p-4 sm:p-8 space-y-6 sm:space-y-8">
           {/* Project Image */}
-          <div className="relative w-full h-72 rounded-xl overflow-hidden">
+          <div className="relative w-full h-52 sm:h-72 rounded-xl overflow-hidden">
             <Image
               src={data.image}
               alt={data.title}
@@ -146,7 +146,7 @@ export default function CaseStudy({ data, onClose }: CaseStudyProps) {
 
           {/* Action Buttons */}
           {data.links && (
-            <div className="flex gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
               {data.links.live && (
                 <a href={data.links.live} target="_blank" rel="noopener noreferrer" className="flex-1">
                   <Button size="lg" className="w-full justify-center">
