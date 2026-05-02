@@ -10,25 +10,15 @@ import Container from '@/components/ui/Container';
 import SectionHeader from '@/components/ui/SectionHeader';
 import { FadeUp, SlideInLeft, SlideInRight } from '@/components/ui/AnimateOnScroll';
 
-// Configuration validator with detailed logging
 const validateEmailJSConfig = () => {
   const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
   const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
   const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
-  console.group('🔍 EmailJS Configuration Check');
-  
-  // Check if env vars exist
   if (!serviceId || !templateId || !publicKey) {
-    console.warn('❌ Missing environment variables:');
-    if (!serviceId) console.warn('   - NEXT_PUBLIC_EMAILJS_SERVICE_ID is undefined');
-    if (!templateId) console.warn('   - NEXT_PUBLIC_EMAILJS_TEMPLATE_ID is undefined');
-    if (!publicKey) console.warn('   - NEXT_PUBLIC_EMAILJS_PUBLIC_KEY is undefined');
-    console.groupEnd();
     return { isValid: false, issues: ['missing'] };
   }
 
-  // Check for placeholder values
   const placeholderPatterns = [
     'your_service_id',
     'your_template_id',
@@ -39,41 +29,16 @@ const validateEmailJSConfig = () => {
   ];
 
   const issues: string[] = [];
-
   placeholderPatterns.forEach((pattern) => {
-    if (serviceId.toLowerCase().includes(pattern)) {
-      console.warn(`⚠️ NEXT_PUBLIC_EMAILJS_SERVICE_ID contains placeholder: "${serviceId}"`);
-      issues.push('service_id_placeholder');
-    }
-    if (templateId.toLowerCase().includes(pattern)) {
-      console.warn(`⚠️ NEXT_PUBLIC_EMAILJS_TEMPLATE_ID contains placeholder: "${templateId}"`);
-      issues.push('template_id_placeholder');
-    }
-    if (publicKey.toLowerCase().includes(pattern)) {
-      console.warn(`⚠️ NEXT_PUBLIC_EMAILJS_PUBLIC_KEY contains placeholder: "${publicKey}"`);
-      issues.push('public_key_placeholder');
-    }
+    if (serviceId.toLowerCase().includes(pattern)) issues.push('service_id_placeholder');
+    if (templateId.toLowerCase().includes(pattern)) issues.push('template_id_placeholder');
+    if (publicKey.toLowerCase().includes(pattern)) issues.push('public_key_placeholder');
   });
 
-  if (issues.length > 0) {
-    console.warn('📖 Update .env.local with actual credentials from https://dashboard.emailjs.com/');
-    console.groupEnd();
-    return { isValid: false, issues };
-  }
-
-  console.log('✅ All environment variables are configured');
-  console.log('📧 Service ID:', serviceId);
-  console.log('📄 Template ID:', templateId);
-  console.log('🔑 Public Key:', publicKey.substring(0, 8) + '...');
-  console.groupEnd();
-  
-  return { isValid: true, issues: [] };
+  return { isValid: issues.length === 0, issues };
 };
 
-// Simple check for UI
-const isEmailJSConfigured = () => {
-  return validateEmailJSConfig().isValid;
-};
+const isEmailJSConfigured = () => validateEmailJSConfig().isValid;
 
 export default function Contact() {
   const { addToast } = useToast();
@@ -81,100 +46,66 @@ export default function Contact() {
     name: '',
     email: '',
     subject: '',
+    projectType: '',
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isConfigured, setIsConfigured] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
-  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'muhammadsamiu560@gmail.com';
-  const isConfigured = isEmailJSConfigured();
-  const isDev = process.env.NODE_ENV === 'development';
+  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || siteData.profile.email;
 
-  // Validate config on mount (development only)
   useEffect(() => {
-    if (isDev) {
-      validateEmailJSConfig();
-    }
-  }, [isDev]);
+    setIsConfigured(isEmailJSConfigured());
+  }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const sendEmail = async (testMode = false) => {
+  const sendEmail = async () => {
     const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
     const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
     const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
 
-    console.group('📧 EmailJS Send Request');
-    console.log('Mode:', testMode ? 'TEST' : 'PRODUCTION');
-    console.log('Service ID:', serviceId);
-    console.log('Template ID:', templateId);
-    console.log('Public Key:', publicKey.substring(0, 8) + '...');
-    console.log('Template Variables:', {
-      from_name: formData.name,
-      from_email: formData.email,
-      subject: formData.subject,
-      message: formData.message.substring(0, 50) + '...',
-      to_email: contactEmail,
-    });
-    console.groupEnd();
-
-    try {
-      const result = await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-          to_email: contactEmail,
-        },
-        publicKey
-      );
-
-      console.group('✅ EmailJS Success Response');
-      console.log('Status:', result.status);
-      console.log('Text:', result.text);
-      console.log('Full Response:', result);
-      console.groupEnd();
-
-      return { success: true, result };
-    } catch (error: any) {
-      console.group('❌ EmailJS Error Response');
-      console.error('Error Object:', error);
-      console.error('Error Type:', error?.name);
-      console.error('Error Message:', error?.message);
-      console.error('Error Text:', error?.text);
-      console.error('Status Code:', error?.status);
-      console.error('Full Error Details:', JSON.stringify(error, null, 2));
-      console.groupEnd();
-
-      throw error;
-    }
+    return emailjs.send(
+      serviceId,
+      templateId,
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        project_type: formData.projectType || 'Not specified',
+        message: formData.message,
+        to_email: contactEmail,
+      },
+      publicKey
+    );
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Validation
-    if (!formData.name.trim() || !formData.email.trim() || !formData.subject.trim() || !formData.message.trim()) {
-      addToast('Please fill out all fields', 'error');
+    if (
+      !formData.name.trim() ||
+      !formData.email.trim() ||
+      !formData.subject.trim() ||
+      !formData.message.trim()
+    ) {
+      addToast('Please fill out all required fields', 'error');
       return;
     }
 
-    // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       addToast('Please enter a valid email address', 'error');
       return;
     }
 
-    // Check if EmailJS is configured
     if (!isConfigured) {
-      console.warn('⚠️ EmailJS Configuration Invalid - See console for details');
-      validateEmailJSConfig();
       addToast(`Contact form is not configured yet. Please email me directly at ${contactEmail}`, 'error');
       return;
     }
@@ -183,207 +114,243 @@ export default function Contact() {
 
     try {
       await sendEmail();
-      addToast('Message sent successfully! I\'ll get back to you soon.', 'success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      addToast("Message sent! I'll get back to you within 24 hours.", 'success');
+      setFormData({ name: '', email: '', subject: '', projectType: '', message: '' });
+      setSubmitted(true);
     } catch (error: any) {
       const errorMessage = error?.text || error?.message || 'Unknown error occurred';
-      addToast(`Failed to send message: ${errorMessage}. Please try emailing me directly.`, 'error');
+      addToast(`Failed to send message: ${errorMessage}. Please email me directly.`, 'error');
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  // Dev-only test email function
-  const handleTestEmail = async () => {
-    setFormData({
-      name: 'Test User',
-      email: 'test@example.com',
-      subject: 'Test Email from Contact Form',
-      message: 'This is a test message sent from the development environment to verify EmailJS integration is working correctly. All template variables should be properly mapped.',
-    });
-
-    // Wait a moment for state to update
-    setTimeout(async () => {
-      setIsSubmitting(true);
-      console.log('🧪 Sending test email...');
-
-      try {
-        await sendEmail(true);
-        addToast('✅ Test email sent successfully! Check your inbox.', 'success');
-      } catch (error: any) {
-        const errorMessage = error?.text || error?.message || 'Unknown error occurred';
-        addToast(`❌ Test email failed: ${errorMessage}`, 'error');
-      } finally {
-        setIsSubmitting(false);
-      }
-    }, 100);
-  };
+  const whatsappLink = `https://wa.me/${siteData.profile.whatsapp}?text=${encodeURIComponent(
+    "Hi Muhammad Sami Ullah, I'd like to discuss a project."
+  )}`;
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="relative bg-white py-24 md:py-28">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-cyan/30 to-transparent" />
+
       <Container>
         <FadeUp>
-          <SectionHeader label="CONTACT" title="Get In Touch" />
+          <SectionHeader
+            label="Contact"
+            title={siteData.contact.title}
+            description={siteData.contact.description}
+          />
         </FadeUp>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12">
           {/* Contact Info */}
           <SlideInLeft>
             <div>
-              <p className="text-gray-600 text-lg mb-8">
-                {siteData.contact.description}
-              </p>
-
-              <div className="space-y-6">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {siteData.contact.items.map((item, index) => (
-                  <div key={index} className="flex gap-4">
-                    <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
-                      <Icon name={item.icon} size={24} className="text-accent" />
+                  <div
+                    key={index}
+                    className="group flex gap-4 rounded-2xl border border-slate-200/80 bg-gradient-to-br from-white to-slate-50/40 p-4 transition-all hover:-translate-y-0.5 hover:border-cyan/30 hover:shadow-soft"
+                  >
+                    <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-accent/10 to-cyan/10 text-accent transition-all group-hover:from-accent group-hover:to-cyan group-hover:text-white">
+                      <Icon name={item.icon} size={18} />
                     </div>
-                    <div>
-                      <h4 className="font-bold text-dark mb-1">{item.label}</h4>
-                      <p className="text-gray-600 break-words">{item.value}</p>
+                    <div className="min-w-0">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">
+                        {item.label}
+                      </p>
+                      <p className="mt-0.5 break-words text-sm font-bold text-navy">{item.value}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* Islamabad Map */}
-              <div className="mt-12 bg-white rounded-2xl overflow-hidden shadow-soft-lg p-1.5 hover:shadow-xl transition-shadow duration-300">
-                <iframe
-                  title="Islamabad Map"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3318.5903968057305!2d74.35161507620034!3d33.73458207326627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfbfd07891722f%3A0x6c7e0b0e0e0e0e0e!2sIslamabad%2C%20Pakistan!5e0!3m2!1sen!2spk!4v1234567890&hl=en&gl=us"
-                  width="100%"
-                  height="260"
-                  style={{ border: 0, borderRadius: '12px' }}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  allowFullScreen
-                  aria-hidden="false"
-                  tabIndex={0}
-                />
+              {/* Action buttons */}
+              <div className="mt-6 flex flex-col gap-2.5 sm:flex-row sm:flex-wrap">
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 px-5 py-3 text-sm font-bold text-white shadow-[0_10px_24px_-8px_rgba(16,185,129,0.55)] transition-all hover:-translate-y-0.5"
+                >
+                  <Icon name="whatsapp" size={18} />
+                  WhatsApp Me
+                </a>
+                <a
+                  href={`mailto:${siteData.profile.email}?subject=${encodeURIComponent('Project inquiry')}`}
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-200 px-5 py-3 text-sm font-bold text-navy transition-all hover:-translate-y-0.5 hover:border-accent hover:text-accent"
+                >
+                  <Icon name="mail" size={18} />
+                  Email Me
+                </a>
+                {siteData.profile.cvAvailable && (
+                  <a
+                    href={siteData.profile.cv}
+                    download
+                    className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-200 px-5 py-3 text-sm font-bold text-navy transition-all hover:-translate-y-0.5 hover:border-accent hover:text-accent"
+                  >
+                    <Icon name="download" size={18} />
+                    Download CV
+                  </a>
+                )}
+              </div>
+
+              {/* What happens next */}
+              <div className="mt-7 overflow-hidden rounded-2xl border border-cyan/20 bg-gradient-to-br from-accent/[0.04] via-white to-cyan/[0.06] p-6">
+                <div className="mb-3 flex items-center gap-2">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-cyan text-white">
+                    <Icon name="zap" size={14} />
+                  </span>
+                  <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-accent">
+                    What Happens Next
+                  </p>
+                </div>
+                <p className="text-sm leading-relaxed text-slate-600">
+                  {siteData.contact.afterSubmit}
+                </p>
               </div>
             </div>
           </SlideInLeft>
 
-          {/* Contact Form */}
+          {/* Contact Form / Success state */}
           <SlideInRight>
-            <div>
-              <form onSubmit={handleSubmit} className="space-y-6 bg-cream rounded-xl p-5 sm:p-8">
-                {/* Name */}
-                <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-dark mb-2">
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Your name"
-                    className="w-full"
-                    required
-                  />
+            {submitted ? (
+              <div className="flex h-full flex-col items-center justify-center rounded-3xl border border-emerald-200 bg-gradient-to-br from-emerald-50 via-white to-cyan/10 p-10 text-center shadow-soft">
+                <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-600 text-white shadow-[0_10px_30px_-10px_rgba(16,185,129,0.6)]">
+                  <Icon name="checkCircle" size={28} />
+                </div>
+                <h3 className="mb-3 text-2xl font-extrabold tracking-tight text-navy">
+                  Message Received
+                </h3>
+                <p className="mb-7 max-w-sm text-sm leading-relaxed text-slate-600">
+                  Thank you for reaching out. I'll review your project and get back to you within 24 hours.
+                </p>
+                <button
+                  onClick={() => setSubmitted(false)}
+                  className="inline-flex items-center gap-2 text-sm font-bold text-accent transition-colors hover:text-accentHover"
+                >
+                  Send another message
+                  <Icon name="arrowRight" size={14} />
+                </button>
+              </div>
+            ) : (
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-5 rounded-3xl border border-slate-200/80 bg-gradient-to-br from-white to-slate-50/40 p-6 shadow-soft sm:p-8"
+              >
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                  <div>
+                    <label htmlFor="name" className="mb-2 block text-xs font-bold uppercase tracking-[0.16em] text-slate-600">
+                      Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Your full name"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="mb-2 block text-xs font-bold uppercase tracking-[0.16em] text-slate-600">
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="you@email.com"
+                      required
+                    />
+                  </div>
                 </div>
 
-                {/* Email */}
-                <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-dark mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="your@email.com"
-                    className="w-full"
-                    required
-                  />
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                  <div>
+                    <label htmlFor="subject" className="mb-2 block text-xs font-bold uppercase tracking-[0.16em] text-slate-600">
+                      Subject *
+                    </label>
+                    <input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      placeholder="Project subject"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="projectType" className="mb-2 block text-xs font-bold uppercase tracking-[0.16em] text-slate-600">
+                      Project Type
+                    </label>
+                    <select
+                      id="projectType"
+                      name="projectType"
+                      value={formData.projectType}
+                      onChange={handleChange}
+                      className="appearance-none bg-[length:16px] bg-[right_1rem_center] bg-no-repeat pr-10"
+                      style={{
+                        backgroundImage:
+                          "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>\")",
+                      }}
+                    >
+                      <option value="">Select project type</option>
+                      {siteData.contact.projectTypes.map((type) => (
+                        <option key={type} value={type}>
+                          {type}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
 
-                {/* Subject */}
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-semibold text-dark mb-2">
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    placeholder="Project subject"
-                    className="w-full"
-                    required
-                  />
-                </div>
-
-                {/* Message */}
-                <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-dark mb-2">
-                    Message
+                  <label htmlFor="message" className="mb-2 block text-xs font-bold uppercase tracking-[0.16em] text-slate-600">
+                    Project Brief *
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Your message here..."
-                    rows={5}
-                    className="w-full"
+                    placeholder="Tell me about your project, goals and timeline..."
+                    rows={6}
                     required
                   />
                 </div>
 
-                {/* Submit Button */}
                 <Button type="submit" size="lg" className="w-full justify-center" disabled={isSubmitting}>
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  {isSubmitting ? (
+                    'Sending...'
+                  ) : (
+                    <>
+                      Send Message
+                      <Icon name="arrowRight" size={18} />
+                    </>
+                  )}
                 </Button>
 
-                {/* Alternative: Direct Email Link */}
                 <div className="text-center">
-                  <p className="text-sm text-gray-500 mb-2">Or</p>
+                  <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.22em] text-slate-400">
+                    Or reach me directly
+                  </p>
                   <a
-                    href={`mailto:${contactEmail}?subject=Contact from Portfolio&body=Hi Muhammad Sami Ullah,%0D%0A%0D%0A`}
-                    className="inline-flex items-center gap-2 text-accent hover:text-accentHover font-semibold text-sm transition-colors break-all"
+                    href={`mailto:${contactEmail}?subject=${encodeURIComponent('Project inquiry')}`}
+                    className="inline-flex items-center gap-2 text-sm font-bold text-accent transition-colors hover:text-accentHover"
                   >
-                    <Icon name="mail" size={18} />
-                    Email me directly at {contactEmail}
+                    <Icon name="mail" size={16} />
+                    {contactEmail}
                   </a>
                 </div>
               </form>
-
-              {/* Dev-Only Test Button */}
-              {isDev && isConfigured && (
-                <div className="mt-6 p-4 bg-blue-50 border-2 border-blue-200 rounded-lg">
-                  <div className="flex items-start gap-3 mb-3">
-                    <Icon name="settings" size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
-                    <div className="text-sm flex-1">
-                      <p className="font-semibold text-blue-800 mb-1">
-                        🧪 Development Testing Tools
-                      </p>
-                      <p className="text-blue-700 text-xs mb-3">
-                        This panel is only visible in development mode. Click below to send a test email with pre-filled data.
-                      </p>
-                      <button
-                        type="button"
-                        onClick={handleTestEmail}
-                        disabled={isSubmitting}
-                        className="px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 text-white font-semibold rounded-lg transition-colors text-sm"
-                      >
-                        {isSubmitting ? '📧 Sending Test Email...' : '🚀 Send Test Email'}
-                      </button>
-                    </div>
-                  </div>
-                  <div className="text-xs text-blue-600 bg-blue-100 rounded p-2 mt-2">
-                    <strong>Test Data:</strong> Test User &lt;test@example.com&gt; → {contactEmail}
-                  </div>
-                </div>
-              )}
-            </div>
+            )}
           </SlideInRight>
         </div>
       </Container>

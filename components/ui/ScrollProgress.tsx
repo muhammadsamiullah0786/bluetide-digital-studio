@@ -19,7 +19,7 @@ export default function ScrollProgress() {
 
   return (
     <div
-      className="fixed top-0 left-0 h-1 bg-gradient-to-r from-accent via-blue-500 to-blue-300 z-[9999] transition-all duration-150"
+      className="fixed top-0 left-0 h-1 bg-gradient-to-r from-accent via-cyan to-accent z-[9999] transition-all duration-150 shadow-[0_0_12px_rgba(192,132,252,0.6)]"
       style={{ width: `${scrollProgress}%` }}
     />
   );

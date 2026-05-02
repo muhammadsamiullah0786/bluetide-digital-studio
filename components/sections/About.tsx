@@ -11,85 +11,139 @@ import { FadeUp, SlideInLeft, SlideInRight } from '@/components/ui/AnimateOnScro
 
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-white">
-      <Container>
+    <section id="about" className="relative bg-white py-24 md:py-28">
+      <div className="pointer-events-none absolute -top-20 right-0 h-72 w-72 rounded-full bg-gradient-to-br from-cyan/10 via-accent/5 to-transparent blur-3xl" />
+
+      <Container className="relative">
         <FadeUp>
-          <SectionHeader label="ABOUT ME" title="Who Am I?" />
+          <SectionHeader
+            label="About"
+            title="About Me"
+            description="A complete developer focused on modern websites, web apps, mobile interfaces and digital products."
+          />
         </FadeUp>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Left: Profile Card */}
+        <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
+          {/* Left: Slim profile card */}
           <SlideInLeft>
-            <div className="space-y-8">
-            {/* Avatar Card */}
-            <div className="bg-gradient-to-b from-blue-50 to-transparent rounded-2xl p-8 text-center">
-              <div className="relative w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden shadow-soft-lg">
-                <Image
-                  src="/Confident professional portrait.png"
-                  alt="Profile Avatar"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <h3 className="text-2xl font-bold text-dark mb-1">
-                {siteData.about.info[0].value}
-              </h3>
-              <p className="text-accent font-semibold mb-4">Product / UI / Frontend</p>
+            <div className="relative">
+              {/* Decorative subtle glow */}
+              <div className="pointer-events-none absolute -inset-4 rounded-[28px] bg-gradient-to-br from-accent/10 via-cyan/5 to-transparent blur-2xl" />
 
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-4 py-6 border-t border-b border-gray-200">
-                {siteData.about.stats.map((stat, index) => (
-                  <div key={index}>
-                    <p className="text-2xl font-bold text-accent">{stat.value}</p>
-                    <p className="text-xs text-gray-600 mt-1">{stat.label}</p>
+              <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-7 shadow-soft-lg">
+                {/* Top accent strip */}
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-accent via-cyan to-accent" />
+
+                <div className="flex flex-col items-center text-center">
+                  <div className="relative mb-5 h-28 w-28 overflow-hidden rounded-full ring-4 ring-cyan/15">
+                    <Image
+                      src="/Confident professional portrait.png"
+                      alt="Muhammad Sami Ullah profile portrait"
+                      fill
+                      className="object-cover"
+                      sizes="112px"
+                    />
                   </div>
-                ))}
-              </div>
+                  <h3 className="text-xl font-bold tracking-tight text-navy">
+                    {siteData.profile.name}
+                  </h3>
+                  <p className="mt-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-accent">
+                    {siteData.profile.shortRole}
+                  </p>
 
-              {/* Buttons */}
-              <div className="space-y-3 py-6">
-                <a href="/Muhammad_Sami_Ullah_Advanced_Modern_CV.pdf" download className="block">
-                  <Button size="md" className="w-full justify-center">
-                    {siteData.about.cta1}
-                  </Button>
-                </a>
-                <a href="#contact" className="block">
-                  <Button variant="secondary" size="md" className="w-full justify-center">
-                    {siteData.about.cta2}
-                  </Button>
-                </a>
-              </div>
+                  {/* Availability dot */}
+                  <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1">
+                    <span className="relative flex h-2 w-2">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70" />
+                      <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+                    </span>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-700">
+                      Available for Work
+                    </span>
+                  </div>
+                </div>
 
-              {/* Social Icons */}
-              <div className="pt-4 border-t border-gray-200">
-                <SocialIcons socials={siteData.socials} size="md" className="justify-center" />
+                <div className="mt-6 grid grid-cols-2 gap-2.5">
+                  {siteData.about.info.map((item) => (
+                    <div
+                      key={item.label}
+                      className="rounded-xl border border-slate-100 bg-slate-50/60 p-3"
+                    >
+                      <div className="mb-1 flex items-center gap-1.5">
+                        <Icon name={item.icon} size={12} className="text-accent" />
+                        <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-slate-400">
+                          {item.label}
+                        </p>
+                      </div>
+                      <p className="text-[12px] font-bold leading-tight text-navy">
+                        {item.value}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-5 flex justify-center">
+                  <SocialIcons
+                    socials={siteData.socials}
+                    size="sm"
+                    variant="light"
+                    className="justify-center"
+                  />
+                </div>
               </div>
             </div>
-          </div>
           </SlideInLeft>
 
           {/* Right: About Content */}
           <SlideInRight>
             <div>
-              <h3 className="text-3xl font-bold text-dark mb-4">
-                {siteData.about.title}
+              <h3 className="mb-7 text-[1.875rem] font-extrabold leading-tight tracking-tight text-navy md:text-[2.5rem]">
+                {siteData.about.headline}
               </h3>
 
-              <p className="text-gray-600 text-lg leading-relaxed mb-8">
+              <p className="mb-5 text-lg leading-[1.75] text-slate-600">
                 {siteData.about.description}
+              </p>
+              <p className="mb-9 text-base leading-[1.75] text-slate-500">
+                {siteData.about.descriptionSecond}
               </p>
 
               {/* Info Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {siteData.about.info.map((item, index) => (
-                  <div key={index} className="bg-cream rounded-lg p-4 hover:shadow-soft transition-all">
-                    <div className="flex items-start gap-3 mb-2">
-                      <Icon name={item.icon} size={20} className="text-accent flex-shrink-0 mt-1" />
-                      <span className="text-sm font-semibold text-gray-600">{item.label}</span>
+                  <div
+                    key={index}
+                    className="group flex items-start gap-3 rounded-2xl border border-slate-200 bg-gradient-to-br from-white to-slate-50/60 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-cyan/30 hover:shadow-soft-md"
+                  >
+                    <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-accent/10 to-cyan/10 text-accent transition-all group-hover:from-accent group-hover:to-cyan group-hover:text-white">
+                      <Icon name={item.icon} size={18} />
+                    </span>
+                    <div className="min-w-0">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">
+                        {item.label}
+                      </p>
+                      <p className="mt-0.5 text-sm font-bold text-navy">{item.value}</p>
                     </div>
-                    <p className="text-dark font-semibold text-sm ml-7">{item.value}</p>
                   </div>
                 ))}
+              </div>
+
+              {/* CTAs */}
+              <div className="mt-9 flex flex-wrap gap-3">
+                {siteData.profile.cvAvailable && (
+                  <a href={siteData.profile.cv} download>
+                    <Button>
+                      <Icon name="download" size={16} />
+                      Download CV
+                    </Button>
+                  </a>
+                )}
+                <a href="#contact">
+                  <Button variant="outline">
+                    Contact Me
+                    <Icon name="arrowRight" size={16} />
+                  </Button>
+                </a>
               </div>
             </div>
           </SlideInRight>

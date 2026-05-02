@@ -1,16 +1,14 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { siteData } from '@/data/site';
 import PortfolioCard from '@/components/ui/PortfolioCard';
-import CaseStudy from '@/components/ui/CaseStudy';
 import Container from '@/components/ui/Container';
 import SectionHeader from '@/components/ui/SectionHeader';
 import { FadeUp } from '@/components/ui/AnimateOnScroll';
 
 export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState('All');
-  const [selectedProject, setSelectedProject] = useState<(typeof siteData.portfolio.items)[0] | null>(null);
 
   const filteredProjects = useMemo(() => {
     if (activeFilter === 'All') return siteData.portfolio.items;
@@ -18,23 +16,27 @@ export default function Portfolio() {
   }, [activeFilter]);
 
   return (
-    <section id="portfolio" className="py-20 bg-cream">
+    <section id="projects" className="relative bg-slate-50 py-24 md:py-28">
       <Container>
         <FadeUp>
-          <SectionHeader label="PORTFOLIO" title="Featured Projects" />
+          <SectionHeader
+            label="Featured Projects"
+            title="Selected Work"
+            description="A snapshot of websites, dashboards, landing pages and product UIs I've designed and developed."
+          />
         </FadeUp>
 
         {/* Filter Tabs */}
-        <FadeUp delay={0.2}>
-          <div className="mb-8 sm:mb-12 flex flex-wrap gap-2 sm:gap-3">
+        <FadeUp delay={0.15}>
+          <div className="mb-12 flex flex-wrap justify-center gap-2 sm:gap-2.5">
             {siteData.portfolio.categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveFilter(category)}
-                className={`px-4 sm:px-6 py-2 rounded-full text-sm sm:text-base font-semibold transition-all ${
+                className={`rounded-full border px-5 py-2 text-xs font-bold uppercase tracking-[0.18em] transition-all duration-300 sm:text-[11px] ${
                   activeFilter === category
-                    ? 'bg-accent text-white shadow-soft'
-                    : 'bg-white text-dark hover:bg-gray-50 border border-gray-200'
+                    ? 'border-transparent bg-gradient-to-r from-accent to-cyan text-white shadow-[0_8px_20px_-6px_rgba(124,58,237,0.55)]'
+                    : 'border-slate-200 bg-white text-slate-600 hover:-translate-y-0.5 hover:border-cyan/40 hover:text-accent'
                 }`}
               >
                 {category}
@@ -44,15 +46,18 @@ export default function Portfolio() {
         </FadeUp>
 
         {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:gap-8">
           {filteredProjects.map((project, index) => (
-            <FadeUp key={project.id} delay={index * 0.1}>
+            <FadeUp key={project.id} delay={index * 0.08}>
               <PortfolioCard
                 id={project.id}
                 title={project.title}
                 category={project.category}
                 image={project.image}
-                onViewClick={() => setSelectedProject(project)}
+                alt={project.alt}
+                description={project.description}
+                tags={project.tags}
+                links={project.links}
               />
             </FadeUp>
           ))}
@@ -60,25 +65,11 @@ export default function Portfolio() {
 
         {/* Empty State */}
         {filteredProjects.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-gray-600 text-lg">No projects found in this category.</p>
+          <div className="rounded-2xl border border-dashed border-slate-200 bg-white py-16 text-center">
+            <p className="text-base text-slate-500">No projects in this category yet — more coming soon.</p>
           </div>
         )}
       </Container>
-
-      {/* Case Study Modal */}
-      {selectedProject && selectedProject.caseStudy && (
-        <CaseStudy
-          data={{
-            title: selectedProject.title,
-            image: selectedProject.image,
-            tags: selectedProject.tags,
-            ...selectedProject.caseStudy,
-            links: selectedProject.links,
-          }}
-          onClose={() => setSelectedProject(null)}
-        />
-      )}
     </section>
   );
 }

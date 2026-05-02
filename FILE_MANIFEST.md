@@ -1,4 +1,4 @@
-# 📦 BlueTide Digital Studio - Complete File Manifest
+# 📦 Muhammad Sami Ullah Portfolio - Complete File Manifest
 
 ## Project Overview
 - **Status**: ✅ COMPLETE & PRODUCTION-READY
@@ -215,7 +215,7 @@ portfolio/
 ## 🏗️ Project Architecture
 
 ```
-BlueTide Digital Studio/
+Muhammad Sami Ullah Portfolio/
 │
 ├── 📂 Documentation (8 files)
 │   ├── START_HERE.md               ← Start here
@@ -559,7 +559,7 @@ npm run lint             # Runs ESLint
 
 ---
 
-*BlueTide Digital Studio - Modern Portfolio Website*
+*Muhammad Sami Ullah Portfolio - Modern Portfolio Website*
 *Built with Next.js • TypeScript • Tailwind CSS*
 *Production Ready • Fully Documented • Easy to Customize*
 

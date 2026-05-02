@@ -4,12 +4,13 @@ import { useState, useEffect } from 'react';
 import { ToastProvider } from '@/components/ui/Toast';
 import Header from '@/components/sections/Header';
 import Hero from '@/components/sections/Hero';
-import TechStack from '@/components/sections/TechStack';
+import TechMarquee from '@/components/sections/TechMarquee';
 import About from '@/components/sections/About';
-import Skills from '@/components/sections/Skills';
-import Resume from '@/components/sections/Resume';
+import Expertise from '@/components/sections/Expertise';
+import WhatICanBuild from '@/components/sections/WhatICanBuild';
 import Services from '@/components/sections/Services';
-import Testimonials from '@/components/sections/Testimonials';
+import Resume from '@/components/sections/Resume';
+import WhyMe from '@/components/sections/WhyMe';
 import Process from '@/components/sections/Process';
 import CTA from '@/components/sections/CTA';
 import Portfolio from '@/components/sections/Portfolio';
@@ -34,21 +35,22 @@ export default function Home() {
   return (
     <ToastProvider>
       <ScrollProgress />
-      <main className="bg-cream">
+      <main className="bg-white">
         <Header isScrolled={isScrolled} />
         <Hero />
-        <TechStack />
+        <TechMarquee />
         <About />
-        <Skills />
-        <Resume />
+        <Expertise />
+        <WhatICanBuild />
         <Services />
-        <Testimonials />
+        <Resume />
+        <WhyMe />
         <Process />
         <CTA />
         <Portfolio />
         <Contact />
         <Footer />
-        
+
         {/* Floating Buttons */}
         <WhatsAppButton />
         <BackToTop />

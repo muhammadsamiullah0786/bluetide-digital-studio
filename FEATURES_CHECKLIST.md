@@ -1,4 +1,4 @@
-# BlueTide Digital Studio - Feature Checklist
+# Muhammad Sami Ullah Portfolio - Feature Checklist
 
 ## ✅ Project Setup
 - [x] Next.js 16+ with App Router
@@ -25,7 +25,7 @@
 
 ## ✅ Hero Section
 - [x] Full-width hero with background image
-- [x] Centered title: "BlueTide Digital Studio"
+- [x] Centered title: "Muhammad Sami Ullah Portfolio"
 - [x] Typewriter effect on subtitle
 - [x] CTA buttons (Explore Work, Get In Touch)
 - [x] Social icons row (5 platforms)

@@ -3,32 +3,47 @@ import './globals.css';
 import { siteData } from '@/data/site';
 
 export const metadata: Metadata = {
-  title: 'Muhammad Sami Ullah | App Developer, Web Developer & UI/UX Designer',
-  description: 'Portfolio of Muhammad Sami Ullah, app developer, web developer and UI/UX designer from Islamabad, Pakistan. Specializing in React, Next.js, and modern web development.',
+  metadataBase: new URL(siteData.metadata.url),
+  title: siteData.metadata.title,
+  description: siteData.metadata.description,
   authors: [{ name: siteData.metadata.author }],
-  keywords: ['App Developer', 'Web Developer', 'UI/UX Designer', 'React Developer', 'Next.js Developer', 'Islamabad', 'Pakistan', 'Full Stack Developer', 'Frontend Developer', 'Mobile App Developer'],
+  keywords: [
+    'Muhammad Sami Ullah',
+    'Full Stack Developer',
+    'App Developer',
+    'Digital Product Builder',
+    'Web Application Developer',
+    'SaaS Developer',
+    'Mobile App Developer',
+    'React Developer',
+    'Next.js Developer',
+    'Node.js Developer',
+    'Dashboard Developer',
+    'Frontend Developer',
+    'Backend Developer',
+    'Pakistan Developer',
+  ],
   openGraph: {
-    title: 'Muhammad Sami Ullah | App Developer, Web Developer & UI/UX Designer',
-    description: 'Portfolio of Muhammad Sami Ullah, app developer, web developer and UI/UX designer from Islamabad, Pakistan.',
+    title: siteData.metadata.title,
+    description: siteData.metadata.description,
     type: 'website',
-    url: 'https://bluetide-studio.com',
-    siteName: 'BlueTide Digital Studio',
+    url: siteData.metadata.url,
+    siteName: 'Muhammad Sami Ullah Portfolio',
     images: [
       {
         url: siteData.metadata.ogImage,
         width: 1200,
         height: 630,
-        alt: 'Muhammad Sami Ullah - Portfolio',
+        alt: 'Muhammad Sami Ullah - Full Stack Developer & Digital Product Builder',
       },
     ],
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Muhammad Sami Ullah | App Developer, Web Developer & UI/UX Designer',
-    description: 'Portfolio of Muhammad Sami Ullah, app developer, web developer and UI/UX designer from Islamabad, Pakistan.',
+    title: siteData.metadata.title,
+    description: siteData.metadata.description,
     images: [siteData.metadata.ogImage],
-    creator: '@MSami7860',
   },
   icons: {
     icon: '/favicon.ico',
@@ -55,21 +70,33 @@ export default function RootLayout({
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: 'Muhammad Sami Ullah',
-    url: 'https://bluetide-studio.com',
-    jobTitle: 'App Developer, Web Developer & UI/UX Designer',
-    description: 'Portfolio of Muhammad Sami Ullah, app developer, web developer and UI/UX designer from Islamabad, Pakistan.',
+    name: siteData.profile.name,
+    url: siteData.metadata.url,
+    jobTitle: siteData.profile.role,
+    description: siteData.metadata.description,
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Islamabad',
+      addressLocality: 'Pakistan',
       addressCountry: 'Pakistan',
     },
-    sameAs: [
-      'https://www.linkedin.com/in/muhammad-sami-ullah-4b9676282/',
-      'https://github.com/muhammadsamiullah7860',
-      'https://twitter.com/MSami7860',
+    sameAs: siteData.socials.map((social) => social.href),
+    knowsAbout: [
+      'Full Stack Development',
+      'Web Application Development',
+      'Mobile App Development',
+      'SaaS Product Development',
+      'Dashboard & Admin Panel Development',
+      'API & Backend Integration',
+      'Frontend Development',
+      'Backend Development',
+      'React',
+      'Next.js',
+      'Node.js',
+      'TypeScript',
+      'Tailwind CSS',
+      'MongoDB',
+      'PostgreSQL',
     ],
-    knowsAbout: ['Web Development', 'Mobile App Development', 'UI/UX Design', 'React', 'Next.js', 'JavaScript', 'TypeScript'],
   };
 
   return (
@@ -77,14 +104,16 @@ export default function RootLayout({
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#f6f1ea" />
+        <meta name="theme-color" content="#0A0820" />
         <link rel="manifest" href="/manifest.json" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-cream">
+      <body className="bg-white antialiased">
         {children}
       </body>
     </html>

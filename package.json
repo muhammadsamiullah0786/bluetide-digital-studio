@@ -1,7 +1,7 @@
 {
-  "name": "bluetide-studio",
+  "name": "muhammad-sami-ullah-portfolio",
   "version": "1.0.0",
-  "description": "BlueTide Digital Studio - Modern Portfolio Website",
+  "description": "Muhammad Sami Ullah - Frontend Developer & Web Designer Portfolio",
   "private": true,
   "scripts": {
     "dev": "next dev",

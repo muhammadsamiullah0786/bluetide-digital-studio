@@ -1,4 +1,4 @@
-# 📚 BlueTide Digital Studio - Documentation Index
+# 📚 Muhammad Sami Ullah Portfolio - Documentation Index
 
 Welcome! Your portfolio website is **complete and running**. Here's what you need to know.
 
@@ -380,6 +380,6 @@ Your portfolio website is ready. Choose a document from the list above and start
 
 ---
 
-*BlueTide Digital Studio - Modern Portfolio Website*
+*Muhammad Sami Ullah Portfolio - Modern Portfolio Website*
 *Built with Next.js • TypeScript • Tailwind CSS*
 *Production Ready • Fully Responsive • SEO Optimized*

@@ -1,4 +1,4 @@
-# BlueTide Digital Studio - Developer Tips & Keyboard Shortcuts
+# Muhammad Sami Ullah Portfolio - Developer Tips & Keyboard Shortcuts
 
 ## ⌨️ Useful Keyboard Shortcuts
 
@@ -522,4 +522,4 @@ You understand:
 ---
 
 *Last Updated: February 2026*
-*BlueTide Digital Studio - Portfolio Website*
+*Muhammad Sami Ullah Portfolio - Portfolio Website*

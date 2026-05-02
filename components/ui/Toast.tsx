@@ -65,7 +65,7 @@ function ToastContainer({ toasts, onRemove }: ToastContainerProps) {
   const typeConfig = {
     success: { bg: 'bg-green-50', border: 'border-green-200', text: 'text-green-900' },
     error: { bg: 'bg-red-50', border: 'border-red-200', text: 'text-red-900' },
-    info: { bg: 'bg-blue-50', border: 'border-blue-200', text: 'text-blue-900' },
+    info: { bg: 'bg-violet-50', border: 'border-violet-200', text: 'text-violet-900' },
     warning: { bg: 'bg-yellow-50', border: 'border-yellow-200', text: 'text-yellow-900' },
   };
 

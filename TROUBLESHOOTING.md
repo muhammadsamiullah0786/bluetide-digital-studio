@@ -53,7 +53,7 @@ New Contact: {{subject}}
 <hr>
 
 <p style="color: #666; font-size: 12px;">
-  Sent from BlueTide Digital Studio Portfolio
+  Sent from Muhammad Sami Ullah Portfolio Portfolio
 </p>
 ```
 

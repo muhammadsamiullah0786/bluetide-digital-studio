@@ -1,4 +1,4 @@
-# 🌊 BlueTide Digital Studio - Complete Project Summary
+# 🌊 Muhammad Sami Ullah Portfolio - Complete Project Summary
 
 ## ✅ PROJECT STATUS: COMPLETE & PRODUCTION-READY
 

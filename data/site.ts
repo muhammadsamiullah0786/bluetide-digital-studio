@@ -1,23 +1,44 @@
 export const siteData = {
   metadata: {
-    title: 'Muhammad Sami Ullah - App Developer | Web Developer | UI/UX Designer',
-    description: 'App Developer, Web Developer & UI/UX Designer based in Islamabad, Pakistan. Building modern, responsive websites and user-friendly mobile apps.',
+    title: 'Muhammad Sami Ullah — Full Stack Developer & Digital Product Builder',
+    description:
+      'Muhammad Sami Ullah is a full stack developer and digital product builder. I design and develop modern websites, web apps, mobile app interfaces, dashboards and SaaS products with clean UI and scalable functionality.',
     author: 'Muhammad Sami Ullah',
-    ogImage: '/og-image.png',
+    ogImage: '/hero-image.png',
+    url: 'https://muhammadsamiullah.com',
+  },
+  brand: {
+    monogram: 'MS',
+    name: 'Muhammad Sami Ullah',
+    tagline: 'Full Stack Developer & Digital Product Builder',
+  },
+  profile: {
+    name: 'Muhammad Sami Ullah',
+    role: 'Full Stack Developer & Digital Product Builder',
+    shortRole: 'Full Stack Developer',
+    email: 'muhammadsamiu560@gmail.com',
+    phone: '+923042922273',
+    whatsapp: '923042922273',
+    location: 'Pakistan',
+    availability: 'Open for Freelance, Remote and Contract Work',
+    cv: '/Muhammad_Sami_Ullah_Advanced_Modern_CV.pdf',
+    cvAvailable: true,
   },
   hero: {
-    title: 'Hi, I\'m Muhammad Sami Ullah',
-    subtitle: 'Building modern, fast and user-friendly web & mobile experiences.',
-    tagline: 'App Developer • Web Developer • UI/UX Designer',
-    valueProposition: 'I help startups and businesses turn ideas into high-quality digital products\nusing modern web, mobile and UI/UX best practices.',
-    badge: 'Available for Freelance',
-    cta: 'Explore My Work',
+    eyebrow: 'Building complete digital solutions',
+    title: "Hi, I'm Muhammad Sami Ullah",
+    highlight: 'Full Stack Developer & Digital Product Builder',
+    description:
+      'I design and develop modern websites, web apps, mobile app interfaces, dashboards and SaaS products with clean UI and scalable functionality.',
+    trust: ['Full Stack Web Apps', 'SaaS Products', 'Mobile App UI'],
   },
   navigation: [
+    { label: 'Home', href: '#home' },
     { label: 'About', href: '#about' },
-    { label: 'Resume', href: '#resume' },
-    { label: 'Services', href: '#services' },
-    { label: 'Portfolio', href: '#portfolio' },
+    { label: 'Stack', href: '#stack' },
+    { label: 'Build', href: '#build' },
+    { label: 'Projects', href: '#projects' },
+    { label: 'Process', href: '#process' },
     { label: 'Contact', href: '#contact' },
   ],
   socials: [
@@ -25,414 +46,397 @@ export const siteData = {
     { icon: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/muhammad-sami-ullah12' },
     { icon: 'facebook', label: 'Facebook', href: 'https://www.facebook.com/share/179EL1HEH4/' },
     { icon: 'instagram', label: 'Instagram', href: 'https://www.instagram.com/invites/contact/?igsh=gxrh7w15wacl&utm_content=zzkohvp' },
-    { icon: 'twitter', label: 'X', href: 'https://x.com/MSami7860' },
   ],
   about: {
-    title: 'Who Am I?',
-    description: 'I\'m a passionate developer and designer building modern, responsive websites and user-friendly mobile applications. Currently pursuing my Diploma in ICT (IT) at 2022–2025, I\'ve completed Coursera certifications in Web Development and App Development, plus an HP AI course. I specialize in clean UI/UX, high-performance web development, app design, and networking fundamentals. My goal is to create digital products that are not just beautiful, but intuitive and focused on real-world usability. Based in Islamabad, Pakistan, I\'m open to freelance projects and full-time opportunities.',
-    stats: [
-      { label: 'Projects', value: '50+' },
-      { label: 'Experience', value: '2+ Years' },
-      { label: 'Clients', value: '30+' },
-    ],
-    cta1: 'Download CV',
-    cta2: 'Contact',
+    title: 'About Me',
+    headline: 'Full stack development for modern digital products.',
+    description:
+      "I'm Muhammad Sami Ullah, a full stack developer and digital product builder. I work across frontend, backend, mobile interfaces and product development to turn ideas into modern, scalable digital experiences.",
+    descriptionSecond:
+      'From professional websites and dashboards to web applications, admin systems and SaaS products — I focus on clean design, practical architecture and user-focused development.',
     info: [
-      { label: 'Name', value: 'Muhammad Sami Ullah', icon: 'user' },
-      { label: 'Phone', value: '+923042922273', icon: 'phone' },
-      { label: 'Email', value: 'muhammadsamiu560@gmail.com', icon: 'mail' },
-      { label: 'Location', value: 'Islamabad, Pakistan', icon: 'location' },
-      { label: 'Education', value: 'Diploma in ICT (IT) – 2022 to 2025', icon: 'book' },
-      { label: 'Freelance', value: 'Open to Work', icon: 'check' },
+      { label: 'Expertise', value: 'Full Stack Development', icon: 'layers' },
+      { label: 'Focus', value: 'Web, Mobile UI, SaaS', icon: 'cube' },
+      { label: 'Availability', value: 'Freelance / Remote', icon: 'checkCircle' },
+      { label: 'Location', value: 'Pakistan', icon: 'location' },
     ],
   },
-  skills: [
-    { name: 'Web Development (HTML, CSS, JS, React/Next.js)', percentage: 90 },
-    { name: 'App Development', percentage: 85 },
-    { name: 'UI/UX Design (Figma)', percentage: 80 },
-    { name: 'Networking', percentage: 75 },
-    { name: 'AI Fundamentals', percentage: 70 },
-  ],
+  techStack: {
+    label: 'Technology Stack',
+    title: 'Tools & Technologies',
+    description: 'A modern, production-tested stack across frontend, backend, mobile, product and deployment.',
+    categories: [
+      {
+        title: 'Frontend',
+        description: 'Pixel-perfect, responsive interfaces with modern frameworks.',
+        icon: 'layout',
+        skills: ['HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'React', 'Next.js', 'Tailwind CSS'],
+      },
+      {
+        title: 'Backend',
+        description: 'Robust APIs, business logic and server-side architecture.',
+        icon: 'server',
+        skills: ['Node.js', 'Express.js', 'REST APIs', 'Authentication', 'Server Logic'],
+      },
+      {
+        title: 'Database',
+        description: 'Data modeling and storage that scales with the product.',
+        icon: 'database',
+        skills: ['MongoDB', 'MySQL', 'PostgreSQL', 'Firebase', 'Data Modeling'],
+      },
+      {
+        title: 'App Development',
+        description: 'Product-oriented mobile interfaces and cross-platform workflows.',
+        icon: 'smartphone',
+        skills: ['Mobile App UI', 'Cross-platform UX', 'App Interfaces'],
+      },
+      {
+        title: 'Product Tools',
+        description: 'Design, prototyping and API testing for shipping real products.',
+        icon: 'palette',
+        skills: ['Figma', 'Postman', 'UI Systems', 'Prototyping'],
+      },
+      {
+        title: 'Deployment',
+        description: 'A modern, version-controlled and deploy-ready workflow.',
+        icon: 'zap',
+        skills: ['Git / GitHub', 'Vercel', 'CI / CD', 'Performance'],
+      },
+    ],
+  },
+  whatICanBuild: {
+    label: 'What I Can Build For You',
+    title: 'Solutions Tailored To Your Goals',
+    description:
+      'Practical, client-focused product types I can design and develop end-to-end — from a simple business website to a complete SaaS platform.',
+    items: [
+      {
+        title: 'Business Websites',
+        description: 'Modern, professional websites that build trust and convert visitors into real customers.',
+        icon: 'globe',
+        outcomes: ['Responsive design', 'SEO-ready', 'Lead capture'],
+      },
+      {
+        title: 'Full Stack Web Apps',
+        description: 'Complete web applications with frontend, backend, database and core business logic working together.',
+        icon: 'layers',
+        outcomes: ['Auth & accounts', 'Database', 'Custom logic'],
+      },
+      {
+        title: 'Mobile App Interfaces',
+        description: 'Mobile-first app UIs and product flows designed with real user experience in mind.',
+        icon: 'smartphone',
+        outcomes: ['Mobile-first UX', 'Modern UI', 'Clear flows'],
+      },
+      {
+        title: 'SaaS Products',
+        description: 'Turn ideas into software products with scalable architecture and product-focused development.',
+        icon: 'cube',
+        outcomes: ['Multi-user', 'Subscriptions-ready', 'Modular'],
+      },
+      {
+        title: 'Dashboards & Admin Panels',
+        description: 'Modern dashboards, admin systems and analytics panels built for clarity and speed.',
+        icon: 'chart',
+        outcomes: ['Charts & tables', 'Roles & access', 'Fast UI'],
+      },
+      {
+        title: 'Digital Products & MVPs',
+        description: 'Digital products from concept to interface to implementation — focused on real business value.',
+        icon: 'sparkles',
+        outcomes: ['MVP-ready', 'User-tested flows', 'Launchable'],
+      },
+    ],
+  },
+  services: {
+    label: 'Services I Offer',
+    title: 'Engagement Models That Fit Your Project',
+    description:
+      'Whether you need a fresh build, a redesign or a focused integration — pick the engagement that matches your stage.',
+    items: [
+      {
+        id: 1,
+        title: 'Full Stack Development',
+        description:
+          'End-to-end builds with frontend, backend, database, auth and deployment. Ideal for new web products.',
+        icon: 'layers',
+      },
+      {
+        id: 2,
+        title: 'Mobile App UI Development',
+        description:
+          'App-based interfaces and product flows with modern UX, mobile-first thinking and clean components.',
+        icon: 'smartphone',
+      },
+      {
+        id: 3,
+        title: 'SaaS Product Development',
+        description:
+          'Build scalable software products with clean architecture, modular features and a strong UI foundation.',
+        icon: 'cube',
+      },
+      {
+        id: 4,
+        title: 'Dashboard & Admin Builds',
+        description:
+          'Custom dashboards and admin portals with charts, tables, role-based access and a fast UI.',
+        icon: 'chart',
+      },
+      {
+        id: 5,
+        title: 'Website Redesign & UI Upgrade',
+        description:
+          'Transform outdated websites into premium, responsive, conversion-focused digital experiences.',
+        icon: 'trendingUp',
+      },
+      {
+        id: 6,
+        title: 'API & Backend Integration',
+        description:
+          'Connect frontend experiences with APIs, databases, auth services and external integrations.',
+        icon: 'server',
+      },
+    ],
+  },
   resume: {
-    professional: [
+    development: [
       {
-        year: '2024 – Present',
-        title: 'Freelance App & Web Developer',
-        company: 'Self-Employed',
-        location: 'Islamabad, Pakistan',
-        description: 'Building responsive websites and UI components with modern frontend practices. Delivering mobile app screens and flows with user-centered UI/UX. Improving performance, responsiveness, and usability across projects. Delivered client website: AJK Insurance Brokers (ajk-insurance.com).',
+        title: 'Full Stack Development',
+        description:
+          'Built responsive websites, dynamic web apps, backend-connected systems and business solutions with a focus on performance and clean architecture.',
+        icon: 'code',
       },
       {
-        year: '2023 – 2024',
-        title: 'UI/UX Designer (Practice & Client Work)',
-        company: 'Self-Employed',
-        location: 'Islamabad, Pakistan',
-        description: 'Designing clean interfaces and prototypes in Figma. Working on layout systems, components, and visual consistency. Focused on accessibility and smooth user experience.',
-      },
-      {
-        year: '2022 – 2023',
-        title: 'IT & Networking (Learning + Practical)',
-        company: 'Self-Employed',
-        location: 'Islamabad, Pakistan',
-        description: 'Learning networking fundamentals and troubleshooting basics. Working with core IT concepts and system understanding.',
+        title: 'Client & Freelance Projects',
+        description:
+          'Worked on websites, digital platforms, dashboards and custom solutions across different industries and project needs.',
+        icon: 'briefcase',
       },
     ],
-    academic: [
+    growth: [
       {
-        year: '2022 – 2025',
-        title: 'Diploma in ICT (Information Technology)',
-        company: 'ICT Institute',
-        location: 'Islamabad, Pakistan',
-        description: 'IT fundamentals, networking, web basics, and software concepts. 3-year comprehensive program covering modern technology stack.',
+        title: 'Product Thinking & SaaS Development',
+        description:
+          'Focused on building digital products, product interfaces, MVPs and scalable solution structures with a strong product mindset.',
+        icon: 'cube',
       },
       {
-        year: '2024',
-        title: 'Web Development Course',
-        company: 'Coursera',
-        location: 'Online',
-        description: 'Responsive UI, modern web development fundamentals, HTML/CSS/JavaScript best practices. 6-month intensive certification.',
-      },
-      {
-        year: '2024',
-        title: 'App Development Course',
-        company: 'Coursera',
-        location: 'Online',
-        description: 'Mobile app development workflows, UI integration, and practical projects. 6-month hands-on training.',
+        title: 'App & Modern Development Practices',
+        description:
+          'Expanded into app-oriented solutions, modern stacks and workflows including TypeScript, Next.js and modern tooling.',
+        icon: 'zap',
       },
     ],
   },
-  services: [
-    {
-      id: 1,
-      title: 'UI/UX Design',
-      description: 'Clean interfaces, wireframes, and Figma prototypes designed for usability and aesthetic appeal.',
-      icon: 'palette',
-    },
-    {
-      id: 2,
-      title: 'Web Development',
-      description: 'Modern responsive websites built with Next.js, React, and Tailwind CSS for performance.',
-      icon: 'code',
-    },
-    {
-      id: 3,
-      title: 'App Development',
-      description: 'Mobile UI flows and integration-ready screens designed for iOS and Android.',
-      icon: 'smartphone',
-    },
-    {
-      id: 4,
-      title: 'Landing Pages',
-      description: 'High-converting, fast-loading landing pages optimized for user engagement.',
-      icon: 'layout',
-    },
-    {
-      id: 5,
-      title: 'Networking Support',
-      description: 'Basic IT and network troubleshooting, setup, and optimization services.',
-      icon: 'trending',
-    },
-    {
-      id: 6,
-      title: 'AI Basics & Integration',
-      description: 'Simple AI automation ideas and practical integration guidance for modern apps.',
-      icon: 'chart',
-    },
-  ],
+  whyMe: {
+    title: 'Why Work With Me',
+    description:
+      "Beyond writing code, I think like a product owner. Every project gets the same care for design, architecture and outcomes.",
+    items: [
+      {
+        title: 'End-to-End Development',
+        description:
+          'From idea to deployment — frontend, backend, database, integrations and launch handled in one place.',
+        icon: 'layers',
+      },
+      {
+        title: 'Product-Focused Thinking',
+        description:
+          'Every decision is made with users, growth and real business value in mind, not just code.',
+        icon: 'cube',
+      },
+      {
+        title: 'Clean & Scalable Builds',
+        description:
+          'Modular code, organized structure and architecture ready to grow with your product over time.',
+        icon: 'code',
+      },
+      {
+        title: 'Mobile-First Experience',
+        description:
+          'Every UI is designed mobile-first so it looks and works great on phones, tablets and desktops.',
+        icon: 'smartphone',
+      },
+      {
+        title: 'Clear Communication',
+        description:
+          'Honest timelines, regular updates and a smooth, transparent workflow from kickoff to delivery.',
+        icon: 'mail',
+      },
+      {
+        title: 'Launch Support',
+        description:
+          'I help deploy the final product and support a clean handover so you can launch with confidence.',
+        icon: 'zap',
+      },
+    ],
+  },
   cta: {
-    title: 'Ready to Build Something Amazing?',
-    description: "Let's collaborate and create digital experiences that make an impact. Whether it's web, mobile, or UI/UX design, I'm ready to bring your vision to life.",
-    button: 'Get In Touch',
+    eyebrow: "Let's collaborate",
+    title: 'Need a complete digital solution?',
+    description:
+      'Whether you need a professional website, a full web app, a mobile app interface or a SaaS product — I can help you design and build a solution that looks modern and works effectively.',
+    primary: 'Start a Project',
+    secondary: 'Contact Me',
   },
-  techStack: [
-    { name: 'React', icon: 'react', color: '#61DAFB' },
-    { name: 'Next.js', icon: 'nextjs', color: '#000000' },
-    { name: 'Tailwind CSS', icon: 'tailwind', color: '#06B6D4' },
-    { name: 'JavaScript', icon: 'javascript', color: '#F7DF1E' },
-    { name: 'Figma', icon: 'figma', color: '#A259FF' },
-    { name: 'GitHub', icon: 'github', color: '#181717' },
-  ],
-  testimonials: [
-    {
-      id: 1,
-      name: 'Ahmed Hassan',
-      role: 'Startup Founder',
-      company: 'TechStart Solutions',
-      feedback: 'Sami turned our product vision into a beautiful, functional app faster than we expected. His design thinking and attention to detail are exceptional.',
-      rating: 5,
-      image: '/testimonials/user-1.jpg',
-    },
-    {
-      id: 2,
-      name: 'Fatima Khan',
-      role: 'Brand Manager',
-      company: 'Digital Marketing Agency',
-      feedback: 'Working with Sami on our landing pages increased conversions by 35%. His UI/UX expertise is truly remarkable.',
-      rating: 5,
-      image: '/testimonials/user-2.jpg',
-    },
-    {
-      id: 3,
-      name: 'Usman Ali',
-      role: 'CEO',
-      company: 'E-Commerce Platform',
-      feedback: 'A reliable developer who delivers quality work on time. Sami is professional, responsive, and genuinely cares about the project outcome.',
-      rating: 4,
-      image: '/testimonials/user-3.jpg',
-    },
-  ],
   process: [
     {
       id: 1,
-      title: 'Discover',
-      description: 'I start by understanding your vision, goals, and target audience. Through discovery calls and research, I gather insights to inform the strategy.',
+      title: 'Understand the Goal',
+      description: 'I learn about the business, idea, audience and technical requirements to align on the real outcome.',
       icon: 'search',
     },
     {
       id: 2,
-      title: 'Design',
-      description: 'I create wireframes and high-fidelity designs, focusing on user experience and visual consistency. Rapid prototyping ensures we get it right.',
-      icon: 'palette',
+      title: 'Plan the Solution',
+      description: 'I define the structure, user flow, features and technical direction before writing any code.',
+      icon: 'target',
     },
     {
       id: 3,
-      title: 'Develop',
-      description: 'Using modern technologies like React and Next.js, I build performant, responsive, and maintainable code tailored to your needs.',
-      icon: 'code',
+      title: 'Design the Experience',
+      description: 'I create clean, user-friendly interfaces with strong visual hierarchy and clarity.',
+      icon: 'palette',
     },
     {
       id: 4,
-      title: 'Deliver',
-      description: 'I test thoroughly, optimize performance, and ensure everything is production-ready. Plus, I provide support and documentation for smooth handoff.',
-      icon: 'check',
+      title: 'Develop the Product',
+      description: 'I build the frontend, backend, integrations and core functionality with a clean codebase.',
+      icon: 'code',
+    },
+    {
+      id: 5,
+      title: 'Test & Refine',
+      description: 'I improve responsiveness, usability, accessibility and performance across devices and edge cases.',
+      icon: 'checkCircle',
+    },
+    {
+      id: 6,
+      title: 'Launch & Support',
+      description: 'I help deploy the final product, monitor the rollout and provide support for a smooth handover.',
+      icon: 'zap',
     },
   ],
   portfolio: {
     items: [
       {
         id: 1,
-        title: 'E-Commerce Landing Page',
-        category: 'UI/UX',
-        image: '/portfolio/E-Commerce Landing Page.jpg',
-        description: 'Modern e-commerce landing page with responsive design and optimized conversion flow.',
-        tags: ['UI/UX Design', 'Landing Page', 'E-Commerce'],
+        title: 'AJK Insurance',
+        category: 'Business Website',
+        image: '/portfolio/ajk-insurance.png',
+        alt: 'AJK Insurance business website homepage screenshot',
+        description:
+          'A responsive insurance business website with a modern layout, service sections and a contact-driven design that builds trust with visitors.',
+        tags: ['Next.js', 'React', 'Tailwind CSS', 'Responsive'],
         links: {
-          live: 'https://example.com',
-          github: 'https://github.com',
-        },
-        caseStudy: {
-          overview: 'Designed and developed a high-converting e-commerce landing page for an online fashion retailer.',
-          problem: 'The client had a 2% conversion rate with poor mobile experience and unclear value proposition. Users were bouncing off quickly without completing purchases.',
-          solution: 'Created a modern, mobile-first design with clear product hierarchy, simplified checkout flow, and compelling CTAs. Implemented fast loading with optimized images and improved UX flow.',
-          toolsUsed: ['Figma', 'React', 'Next.js', 'Tailwind CSS', 'Framer Motion'],
-          keyFeatures: [
-            'Responsive design for all devices',
-            'High-impact hero section with social proof',
-            'Streamlined checkout process',
-            'Product carousel with smooth animations',
-            'Trust signals and testimonials section'
-          ],
-          result: 'Achieved 8.5% conversion rate (+325% improvement), 45% faster page loads, and 60% reduction in bounce rate. Increased average order value by 34%.',
+          live: 'https://ajk-insurance.com/',
         },
       },
       {
         id: 2,
-        title: 'Banking App UI Concept',
-        category: 'UI/UX',
+        title: 'Banking App UI',
+        category: 'Mobile App UI',
         image: '/portfolio/Banking App UI Concept.webp',
-        description: 'User-centered mobile banking app interface with clean design and intuitive navigation.',
-        tags: ['Mobile App', 'UI Design', 'Finance'],
-        links: {
-          live: 'https://example.com',
-        },
-        caseStudy: {
-          overview: 'Designed a comprehensive mobile banking app UI with focus on security, accessibility, and user delight.',
-          problem: 'Traditional banking apps felt outdated and confusing. Users struggled to find features and felt uncertain about security.',
-          solution: 'Created a modern, minimalist interface with clear information hierarchy, intuitive navigation, and reassuring security indicators. Used smooth animations to guide users.',
-          toolsUsed: ['Figma', 'Adobe XD', 'Framer', 'Prototyping'],
-          keyFeatures: [
-            'Clean dashboard with account overview',
-            'One-tap payments and transfers',
-            'Advanced security indicators',
-            'Transaction history with filtering',
-            'Biometric authentication UI'
-          ],
-          result: 'Design received positive feedback in user testing with 9.2/10 satisfaction score. Reduced error rates by 67% compared to previous design.',
-        },
+        alt: 'Mobile banking app interface concept screens',
+        description:
+          'A modern banking app UI concept with clean dashboards, transaction flows and account management screens designed with a mobile-first approach.',
+        tags: ['Mobile UI', 'Product Design', 'Figma'],
+        links: {},
       },
       {
         id: 3,
-        title: 'Blog-image Strava app onboarding',
-        category: 'UI/UX',
-        image: '/portfolio/Blog-image_Strava-app-onboarding.png',
-        description: 'Engaging onboarding screens for mobile app with smooth animations and clear user guidance.',
-        tags: ['Mobile App', 'UI/UX', 'Onboarding'],
-        links: {
-          live: 'https://example.com',
-        },
-        caseStudy: {
-          overview: 'Redesigned app onboarding flow for a fitness tracking application to reduce drop-off and increase user activation.',
-          problem: 'Users were abandoning the app during setup. The onboarding was too long (8+ screens) and lacked clear value proposition.',
-          solution: 'Streamlined to 4 engaging screens with micro-interactions, progressive disclosure, and clear benefits. Used illustrations and animations to maintain engagement.',
-          toolsUsed: ['Figma', 'React Native', 'Framer Motion', 'Adobe Illustrator'],
-          keyFeatures: [
-            'Welcome animation with brand story',
-            'Progressive permission requests',
-            'Interactive feature showcase',
-            'Smooth screen transitions',
-            'Skip and back options'
-          ],
-          result: 'Reduced onboarding drop-off from 42% to 12%. Activation rate improved by 78%. Average session duration in first week increased by 125%.',
-        },
+        title: 'Mobile App Onboarding',
+        category: 'Mobile App UI',
+        image: '/portfolio/mobile-app-onboarding.png',
+        alt: 'Mobile app onboarding flow design screens',
+        description:
+          'A mobile-first app onboarding flow concept with clear hierarchy, gentle transitions and a friendly first-run experience.',
+        tags: ['Mobile UI', 'UX Flow', 'Onboarding'],
+        links: {},
       },
       {
         id: 4,
-        title: 'Dashboard UI',
-        category: 'UI/UX',
+        title: 'Admin Dashboard',
+        category: 'Dashboard',
         image: '/portfolio/Dashboard UI.jpg',
-        description: 'Analytics dashboard with data visualization, charts, and real-time metrics display.',
-        tags: ['Dashboard', 'React', 'Data Visualization'],
-        links: {
-          live: 'https://example.com',
-          github: 'https://github.com',
-        },
-        caseStudy: {
-          overview: 'Built a comprehensive analytics dashboard for a SaaS platform enabling users to track KPIs and make data-driven decisions.',
-          problem: 'The previous dashboard was cluttered, slow, and difficult to interpret. Users needed to visit multiple pages to get insights.',
-          solution: 'Designed an intuitive dashboard with customizable widgets, real-time data visualization, and clear data hierarchy. Built with React for performance.',
-          toolsUsed: ['React', 'TypeScript', 'Chart.js', 'Tailwind CSS', 'Next.js'],
-          keyFeatures: [
-            'Real-time data updates',
-            'Customizable dashboard widgets',
-            'Interactive charts and graphs',
-            'Export functionality',
-            'Dark mode support'
-          ],
-          result: 'Load time reduced from 8s to 1.2s. Users reported 40% faster insights. Adoption increased from 35% to 87% of active users.',
-        },
+        alt: 'Admin dashboard with charts, tables and data widgets',
+        description:
+          'A modern admin dashboard with cards, charts, data tables and a responsive layout for managing day-to-day business operations.',
+        tags: ['React', 'Tailwind', 'Charts', 'Admin Panel'],
+        links: {},
       },
       {
         id: 5,
-        title: 'Mobile App Onboarding Flow',
-        category: 'UI/UX',
-        image: '/portfolio/mobile-app-onboarding.png',
-        description: 'Engaging onboarding screens for mobile app with smooth animations and clear user guidance.',
-        tags: ['Mobile App', 'UI/UX', 'Onboarding'],
-        links: {
-          live: 'https://example.com',
-        },
-        caseStudy: {
-          overview: 'Created a delightful onboarding experience for a productivity app that guided new users through key features.',
-          problem: 'New users didn\'t understand the app\'s core features and rarely returned after first use. Retention rate was only 15%.',
-          solution: 'Designed personalized onboarding with interactive tutorials, guided tours, and achievement celebrations. Made key features discoverable and rewarding.',
-          toolsUsed: ['Figma', 'React Native', 'JavaScript', 'Framer'],
-          keyFeatures: [
-            'Personalized welcome experience',
-            'Interactive feature tutorials',
-            'Achievement system',
-            'Contextual help tooltips',
-            'Smooth animations'
-          ],
-          result: '7-day retention improved from 15% to 52%. Users completed 89% of onboarding. First week engagement time increased by 3.5x.',
-        },
+        title: 'E-Commerce Landing',
+        category: 'Landing Page',
+        image: '/portfolio/E-Commerce Landing Page.jpg',
+        alt: 'E-commerce landing page with product hero and feature sections',
+        description:
+          'A high-converting e-commerce landing page with strong hierarchy, clear CTAs and a conversion-focused product narrative.',
+        tags: ['Landing Page', 'Conversion', 'Tailwind'],
+        links: {},
       },
       {
         id: 6,
         title: 'Brand Kit & UI System',
-        category: 'UI/UX',
+        category: 'Design System',
         image: '/portfolio/brand-kit-ui-system.png',
-        description: 'Comprehensive design system with brand guidelines, components, and reusable UI kit.',
-        tags: ['Design System', 'Branding', 'Figma'],
-        links: {
-          live: 'https://example.com',
-        },
-        caseStudy: {
-          overview: 'Created a scalable design system and comprehensive brand kit for a growing SaaS company.',
-          problem: 'No standardized design language. Multiple versions of components across products. Design inconsistency causing user confusion and slowing development.',
-          solution: 'Built a comprehensive design system with documented components, brand guidelines, and a Figma library. Included accessibility guidelines and best practices documentation.',
-          toolsUsed: ['Figma', 'Storybook', 'TypeScript', 'React'],
-          keyFeatures: [
-            '40+ reusable components',
-            'Brand guidelines documentation',
-            'Accessibility standards',
-            'Design tokens',
-            'Figma component library'
-          ],
-          result: 'Design-to-development time reduced by 55%. Component reusability reached 85%. Design system adopted across 3 product teams.',
-        },
-      },
-      {
-        id: 7,
-        title: 'AJK Insurance Brokers Website',
-        category: 'Development',
-        image: '/ajk-insurance.png.png',
-        description: 'Responsive insurance brokerage website with services showcase, carriers/partners section, online application form, and WhatsApp chat support.',
-        tags: ['Client Project', 'Web Development', 'Next.js', 'Responsive Design'],
-        links: {
-          live: 'https://ajk-insurance.com/',
-        },
-        caseStudy: {
-          overview: 'Developed a professional insurance brokerage website for AJK Insurance Brokers, showcasing their services and enabling online client applications.',
-          problem: 'Client needed a modern online presence to reach potential customers, showcase insurance services, and streamline the application process.',
-          solution: 'Built a responsive, user-friendly website with clear service descriptions, carrier partnerships display, online application form integration, and WhatsApp chat support for instant client communication.',
-          toolsUsed: ['Next.js', 'React', 'Tailwind CSS', 'HTML/CSS', 'JavaScript'],
-          keyFeatures: [
-            'Hero section with clear call-to-action',
-            'Services showcase (Life, Health, Accident, Final Expense, Travel Insurance)',
-            'About section establishing trust and credibility',
-            'Carriers & Partners display',
-            'Online application form for lead generation',
-            'WhatsApp chat integration for instant support',
-            'Fully responsive design for all devices'
-          ],
-          result: 'Launched a professional online presence enabling the client to reach a wider audience and streamline customer acquisition. The website provides 24/7 accessibility with integrated contact options.',
-        },
+        alt: 'Brand kit and UI design system components and tokens',
+        description:
+          'A complete brand kit and UI system with reusable components, typography scale, color tokens and consistent visual language.',
+        tags: ['Design System', 'UI Kit', 'Components'],
+        links: {},
       },
     ],
-    categories: ['All', 'UI/UX', 'Development', 'Mobile App', 'Design System'],
+    categories: ['All', 'Business Website', 'Mobile App UI', 'Dashboard', 'Landing Page', 'Design System'],
   },
   contact: {
-    title: 'Get In Touch',
-    description: "Have a project in mind or want to collaborate? I'd love to hear from you. Send me a message and I'll get back to you as soon as possible.",
+    title: "Let's Build Something Great",
+    description:
+      'Have a project idea, need a website, want to build a web app or planning a digital product? Send a quick brief — I usually respond within 24 hours.',
+    afterSubmit:
+      "Once you submit the form, I'll review your project details and get back to you within 24 hours via email — usually with a few clarifying questions and a rough timeline.",
     items: [
-      {
-        label: 'Address',
-        value: 'Islamabad, Pakistan',
-        icon: 'location',
-      },
-      {
-        label: 'Call Me',
-        value: '+923042922273',
-        icon: 'phone',
-      },
-      {
-        label: 'Email Us',
-        value: 'muhammadsamiu560@gmail.com',
-        icon: 'mail',
-      },
+      { label: 'Email', value: 'muhammadsamiu560@gmail.com', icon: 'mail' },
+      { label: 'WhatsApp', value: '+92 304 2922273', icon: 'whatsapp' },
+      { label: 'Location', value: 'Pakistan', icon: 'location' },
+      { label: 'Availability', value: 'Freelance / Remote', icon: 'checkCircle' },
+    ],
+    projectTypes: [
+      'Business Website',
+      'Portfolio Website',
+      'Full Stack Web App',
+      'SaaS Product',
+      'Mobile App',
+      'Dashboard / Admin Panel',
+      'Website Redesign',
+      'Other',
     ],
   },
   footer: {
-    about: 'Designing and building clean digital experiences with modern web and app technologies. Passionate about creating user-friendly, responsive, and high-performance digital products.',
-    location: 'Based in Islamabad, Pakistan — Available Worldwide',
+    about:
+      'Building modern websites, apps and digital products. I design and develop full-stack solutions for businesses, startups and professionals who want quality and scale.',
+    location: 'Pakistan — Open for freelance, remote and contract work',
     quickLinks: [
-      { label: 'Home', href: '#' },
+      { label: 'Home', href: '#home' },
       { label: 'About', href: '#about' },
-      { label: 'Resume', href: '#resume' },
-      { label: 'Services', href: '#services' },
-      { label: 'Portfolio', href: '#portfolio' },
+      { label: 'Stack', href: '#stack' },
+      { label: 'Build', href: '#build' },
+      { label: 'Projects', href: '#projects' },
+      { label: 'Contact', href: '#contact' },
     ],
     services: [
-      { label: 'UI/UX Design', href: '#services' },
-      { label: 'Web Development', href: '#services' },
-      { label: 'App Development', href: '#services' },
-      { label: 'Landing Pages', href: '#services' },
+      { label: 'Full Stack Development', href: '#services' },
+      { label: 'Mobile App UI', href: '#services' },
+      { label: 'SaaS Product Development', href: '#services' },
+      { label: 'Dashboard & Admin Builds', href: '#services' },
+      { label: 'Website Redesign', href: '#services' },
     ],
     contact: [
       { label: 'Email', value: 'muhammadsamiu560@gmail.com', href: 'mailto:muhammadsamiu560@gmail.com' },
-      { label: 'Phone', value: '+923042922273', href: 'tel:+923042922273' },
-      { label: 'Location', value: 'Islamabad, Pakistan' },
+      { label: 'WhatsApp', value: '+92 304 2922273', href: 'https://wa.me/923042922273' },
+      { label: 'Location', value: 'Pakistan' },
     ],
-    copyright: '© 2026 BlueTide Digital Studio. All rights reserved. Crafted with care by Muhammad Sami Ullah.',
+    copyright: '© 2026 Muhammad Sami Ullah. All rights reserved.',
   },
 };

@@ -1,11 +1,11 @@
 {
-  "name": "BlueTide Digital Studio - Muhammad Sami Ullah",
-  "short_name": "BlueTide Studio",
-  "description": "Portfolio of Muhammad Sami Ullah, app developer, web developer and UI/UX designer from Islamabad, Pakistan",
+  "name": "Muhammad Sami Ullah Portfolio",
+  "short_name": "MSU Portfolio",
+  "description": "Portfolio of Muhammad Sami Ullah, frontend developer and web designer from Pakistan",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f6f1ea",
-  "theme_color": "#2563EB",
+  "background_color": "#F8FAFC",
+  "theme_color": "#0F172A",
   "orientation": "portrait-primary",
   "icons": [
     {

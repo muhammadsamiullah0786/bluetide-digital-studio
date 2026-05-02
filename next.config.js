@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  turbopack: {
+    root: __dirname,
+  },
   
   // Performance optimizations
   images: {
@@ -19,8 +22,6 @@ const nextConfig = {
   // Generate ETags for caching
   generateEtags: true,
   
-  // Minify code
-  swcMinify: true,
 };
 
 module.exports = nextConfig;

@@ -8,41 +8,47 @@ import { FadeUp } from '@/components/ui/AnimateOnScroll';
 
 export default function Process() {
   return (
-    <section id="process" className="py-20 bg-gradient-to-b from-white to-cream">
-      <Container>
+    <section
+      id="process"
+      className="relative overflow-hidden bg-slate-50 py-24 md:py-28"
+    >
+      <div className="pointer-events-none absolute inset-0 bg-grid-light opacity-50" />
+
+      <Container className="relative">
         <FadeUp>
-          <SectionHeader label="PROCESS" title="How I Work" />
+          <SectionHeader
+            label="How I Work"
+            title="A Clear, Calm Process"
+            description="Six grounded steps that turn any idea, business need or product concept into a finished, deployed solution."
+          />
         </FadeUp>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {siteData.process.map((step, index) => (
-            <FadeUp key={step.id} delay={index * 0.1}>
-              <div className="relative">
-              {/* Card */}
-              <div className="bg-white rounded-xl p-6 h-full border border-gray-100 hover:border-accent/30 hover:shadow-soft transition-all duration-300 group">
-                {/* Step Number */}
-                <div className="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-br from-accent to-blue-700 text-white font-bold text-sm mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {step.id}
+            <FadeUp key={step.id} delay={index * 0.06}>
+              <div className="shine group relative h-full transform-gpu rounded-2xl border border-slate-200/80 bg-white p-7 shadow-soft transition-all duration-400 will-change-transform hover:-translate-y-1.5 hover:border-cyan/40 hover:shadow-soft-lg">
+                {/* Background number watermark */}
+                <span className="pointer-events-none absolute right-4 top-2 text-[80px] font-black leading-none tracking-tighter text-slate-100 transition-colors duration-500 group-hover:text-cyan/10">
+                  {String(step.id).padStart(2, '0')}
+                </span>
+
+                <div className="relative">
+                  <div className="mb-5 inline-flex items-center gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-cyan text-white shadow-[0_10px_24px_-8px_rgba(124,58,237,0.55)]">
+                      <Icon name={step.icon} size={22} />
+                    </div>
+                    <span className="rounded-full border border-accent/20 bg-accent/5 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.22em] text-accent">
+                      Step {step.id}
+                    </span>
+                  </div>
+
+                  <h3 className="mb-3 text-xl font-bold tracking-tight text-navy">
+                    {step.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-slate-500">
+                    {step.description}
+                  </p>
                 </div>
-
-                {/* Icon */}
-                <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-accent/10 group-hover:bg-accent group-hover:text-white transition-all duration-300 mb-4">
-                  <Icon name={step.icon} size={24} className="text-accent group-hover:text-white transition-colors duration-300" />
-                </div>
-
-                {/* Title */}
-                <h3 className="text-xl font-bold text-dark mb-3">{step.title}</h3>
-
-                {/* Description */}
-                <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
-              </div>
-
-              {/* Arrow Connector */}
-              {index < siteData.process.length - 1 && (
-                <div className="hidden lg:block absolute -right-4 top-1/2 -translate-y-1/2 text-accent/30">
-                  <Icon name="arrowRight" size={32} />
-                </div>
-              )}
               </div>
             </FadeUp>
           ))}

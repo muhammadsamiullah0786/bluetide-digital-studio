@@ -1,4 +1,4 @@
-# BlueTide Digital Studio - Installation & Setup Complete ✅
+# Muhammad Sami Ullah Portfolio - Installation & Setup Complete ✅
 
 ## 🚀 Project Successfully Created!
 
@@ -21,7 +21,7 @@ Your modern, production-ready portfolio website has been fully set up and is now
 ### 📁 Project Files Created
 
 ```
-📦 BlueTide Digital Studio/
+📦 Muhammad Sami Ullah Portfolio/
 ├── 📂 app/
 │   ├── page.tsx                 # Home page with all sections
 │   ├── layout.tsx               # Root layout with metadata

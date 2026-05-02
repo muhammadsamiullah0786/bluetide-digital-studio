@@ -44,7 +44,7 @@ Replace the default template with this:
     <title>New Contact Form Message</title>
 </head>
 <body>
-    <h2>New Message from BlueTide Portfolio</h2>
+    <h2>New Message from Muhammad Sami Ullah Portfolio Portfolio</h2>
     
     <p><strong>From:</strong> {{from_name}}</p>
     <p><strong>Email:</strong> {{from_email}}</p>
@@ -58,7 +58,7 @@ Replace the default template with this:
     <hr>
     
     <p style="color: #666; font-size: 12px;">
-        This email was sent from your portfolio contact form at BlueTide Digital Studio.
+        This email was sent from your portfolio contact form at Muhammad Sami Ullah Portfolio.
     </p>
 </body>
 </html>

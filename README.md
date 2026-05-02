@@ -1,4 +1,4 @@
-# BlueTide Digital Studio - Portfolio Website
+# Muhammad Sami Ullah Portfolio - Portfolio Website
 
 A modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS.
 

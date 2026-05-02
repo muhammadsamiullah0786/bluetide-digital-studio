@@ -1,4 +1,4 @@
-# BlueTide Digital Studio - Complete Documentation
+# Muhammad Sami Ullah Portfolio - Complete Documentation
 
 ## 📖 Table of Contents
 1. [Quick Start](#quick-start)
@@ -21,7 +21,7 @@
 
 ```bash
 # Navigate to project directory
-cd "BlueTide Digital Studio"
+cd "Muhammad Sami Ullah Portfolio"
 
 # Install dependencies (if not already installed)
 npm install
@@ -106,7 +106,7 @@ This single file contains ALL text, links, and structured content. No need to ed
 export const siteData = {
   // Hero section
   hero: {
-    title: 'BlueTide Digital Studio',
+    title: 'Muhammad Sami Ullah Portfolio',
     subtitle: 'I\'m a Creative Product Designer & Frontend Developer',
   },
 
@@ -130,7 +130,7 @@ export const siteData = {
   // Contact
   contact: {
     items: [
-      { label: 'Email', value: 'hello@bluetide.com', icon: 'mail' },
+      { label: 'Email', value: 'hello@Muhammad Sami Ullah Portfolio.com', icon: 'mail' },
     ]
   }
   // ... more sections
